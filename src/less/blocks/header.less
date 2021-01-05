@@ -1,0 +1,119 @@
+.header {
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-right: var(--block-gap-horizontal, @block-gap-horizontal);
+  padding-left: var(--block-gap-horizontal, @block-gap-horizontal);
+
+  @media (min-width: @breakpoint-md) {
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+}
+
+.header__wrap {
+  max-width: @breakpoint-xl;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.header__list {
+  @media (min-width: @breakpoint-md) {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: ~"calc(var(--element-gap-horizontal, @{element-gap-horizontal}) * -1)";
+    margin-bottom: ~"calc(var(--element-gap-vertical, @{element-gap-vertical}) * -1)";
+  }
+}
+
+.header__fold,
+.header__collapse {
+  @media (min-width: @breakpoint-md) {
+    width: auto;
+    border: 0 solid transparent;
+    border-right-width: var(--element-gap-horizontal, @element-gap-horizontal);
+    border-bottom-width: var(--element-gap-vertical, @element-gap-vertical);
+  }
+}
+
+.header__menu {
+  display: flex;
+  align-items: center;
+
+  &--collapse {
+    margin-right: -24px;
+    margin-bottom: -24px;
+
+    li {
+      white-space: nowrap;
+      margin-right: 24px;
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: @breakpoint-md - 1px) {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+}
+
+.header__logo {
+  @media (max-width: @breakpoint-md - 1px) {
+    margin-right: auto;
+  }
+}
+
+.header__phone {
+  margin-right: 24px;
+
+  @media (min-width: @breakpoint-md) {
+    display: none;
+  }
+}
+
+.header__collapse {
+  @media (max-width: @breakpoint-md - 1px) {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #fff;
+    padding: 16px 24px;
+    opacity: 0;
+    visibility: hidden;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out;
+    transition-property: opacity, transform;
+    z-index: 100;
+    overflow-y: auto;
+
+    &--open {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+
+.header__toggle {
+  line-height: 0;
+
+  @media (min-width: @breakpoint-md) {
+    display: none;
+  }
+}
+
+.header__close {
+  float: right;
+
+  @media (min-width: @breakpoint-md) {
+    display: none;
+  }
+}
+
+.header__nav {
+  @media (max-width: @breakpoint-md - 1px) {
+    margin-top: 32px;
+  }
+}
