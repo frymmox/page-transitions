@@ -1,14 +1,11 @@
 function animationLeave(container) {
   return gsap.to(container.querySelector('.promo__cover'), {
-    xPercent: 100
+    duration: 2,
+    ease: "power2.inOut",
+    xPercent: -100,
+    opacity: 0
   })
 }
-
-function animationEnter(container) {
-  return gsap.from(container.querySelector('.promo__cover--item'), {
-    xPercent: 100
-  })
-};
 
 barba.init({
   transitions: [{
@@ -16,8 +13,6 @@ barba.init({
     async leave(data) {
       await animationLeave(data.current.container);
     },
-    enter(data) {
-      animationEnter(data.next.container);
-    }
+    enter() {}
   }]
 });
