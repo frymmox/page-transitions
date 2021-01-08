@@ -1,6 +1,6 @@
 function animationLeave(container) {
   return gsap.to(container.querySelector('.promo__cover'), {
-    duration: 2,
+    duration: 1.7,
     ease: "power2.inOut",
     xPercent: -100,
     opacity: 0
